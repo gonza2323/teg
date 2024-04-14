@@ -7,8 +7,8 @@ public class RoundNoIndicator : MonoBehaviour
 {
     [SerializeField] private TMP_Text roundNoIndicatorText;
 
-    private void Start() {
-        GameManager.Instance.OnTurnStart += OnRoundStart;
+    private void Awake() {
+        GameManager.OnRoundStart += OnRoundStart;
     }
 
     private void OnRoundStart(object sender, System.EventArgs e) {

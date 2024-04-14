@@ -15,10 +15,10 @@ public class GameManager : MonoBehaviour {
     public Player CurrentPlayer { get; private set; }
     private int currentPlayerIndex;
 
-    public event EventHandler OnRoundStart;
-    public event EventHandler OnTurnStart;
-    public event EventHandler OnTurnEnd;
-    public event EventHandler OnRoundEnd;
+    public static event EventHandler OnRoundStart;
+    public static event EventHandler OnTurnStart;
+    public static event EventHandler OnTurnEnd;
+    public static event EventHandler OnRoundEnd;
 
     private void Awake() {
         Instance = this;

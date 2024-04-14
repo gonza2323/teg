@@ -8,8 +8,8 @@ public class CurrentPlayerIndicator : MonoBehaviour
 {
     [SerializeField] private TMP_Text playerIndicatorText;
 
-    private void Start() {
-        GameManager.Instance.OnTurnStart += OnTurnStart;
+    private void Awake() {
+        GameManager.OnTurnStart += OnTurnStart;
     }
 
     private void OnTurnStart(object sender, System.EventArgs e) {
