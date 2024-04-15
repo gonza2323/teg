@@ -15,6 +15,7 @@ public class GameManager : MonoBehaviour {
     public Player CurrentPlayer { get; private set; }
     private int currentPlayerIndex;
 
+    public static event EventHandler OnGameStart;
     public static event EventHandler OnRoundStart;
     public static event EventHandler OnTurnStart;
     public static event EventHandler OnTurnEnd;
@@ -29,6 +30,12 @@ public class GameManager : MonoBehaviour {
             country.owner.ownedCountries.Add(country);
         }
 
+        StartGame();
+    }
+
+    private void StartGame() {
+        Debug.Log("Game started");
+        OnGameStart?.Invoke(this, EventArgs.Empty);
         StartRound();
     }
 
