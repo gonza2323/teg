@@ -46,9 +46,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 717189e96b6baaf4c846b4e983d8d5bc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  name: 
+  countryName: 
   neighboringCountries: []
   owner: {fileID: 0}
+  armiesAmount: 0
 --- !u!61 &5603222380848456771
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -104,6 +105,7 @@ GameObject:
   m_Component:
   - component: {fileID: 942029950372007525}
   - component: {fileID: 3535306345816349111}
+  - component: {fileID: 6290365924937184057}
   m_Layer: 0
   m_Name: CountryVisual
   m_TagString: Untagged
@@ -178,3 +180,17 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &6290365924937184057
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5915926027335269502}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f937897f2d62cb34486c1041eeb99b9c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  country: {fileID: 7324115645553430165}
+  countrySprite: {fileID: 3535306345816349111}

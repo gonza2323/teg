@@ -14,5 +14,6 @@ public class CurrentPlayerIndicator : MonoBehaviour
 
     private void OnTurnStart(object sender, System.EventArgs e) {
         playerIndicatorText.text = "Playing: " + GameManager.Instance.CurrentPlayer.playerName;
+        playerIndicatorText.color = GameManager.Instance.CurrentPlayer.playerColor;
     }
 }
