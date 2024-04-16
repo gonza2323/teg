@@ -152,10 +152,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3b2c201a10e35e048a76e04735d77c6d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  players:
-  - {fileID: 225367065}
-  - {fileID: 911637557}
-  - {fileID: 212171072}
   countries:
   - {fileID: 1352688881}
   - {fileID: 1895385699}
@@ -165,6 +161,10 @@ MonoBehaviour:
   - {fileID: 482013616}
   - {fileID: 1357447070}
   - {fileID: 1870893671}
+  players:
+  - {fileID: 911637557}
+  - {fileID: 225367065}
+  - {fileID: 212171072}
 --- !u!4 &38997601
 Transform:
   m_ObjectHideFlags: 0
@@ -201,6 +201,14 @@ PrefabInstance:
       value: Brasil
       objectReference: {fileID: 0}
     - target: {fileID: 7324115645553430165, guid: 9499a8447a7ae9f41bccb271d016d2b0, type: 3}
+      propertyPath: <Owner>k__BackingField
+      value: 
+      objectReference: {fileID: 911637557}
+    - target: {fileID: 7324115645553430165, guid: 9499a8447a7ae9f41bccb271d016d2b0, type: 3}
+      propertyPath: <CountryName>k__BackingField
+      value: Brasil
+      objectReference: {fileID: 0}
+    - target: {fileID: 7324115645553430165, guid: 9499a8447a7ae9f41bccb271d016d2b0, type: 3}
       propertyPath: neighboringCountries.Array.size
       value: 3
       objectReference: {fileID: 0}
@@ -214,6 +222,22 @@ PrefabInstance:
       objectReference: {fileID: 1577080663}
     - target: {fileID: 7324115645553430165, guid: 9499a8447a7ae9f41bccb271d016d2b0, type: 3}
       propertyPath: neighboringCountries.Array.data[2]
+      value: 
+      objectReference: {fileID: 482013616}
+    - target: {fileID: 7324115645553430165, guid: 9499a8447a7ae9f41bccb271d016d2b0, type: 3}
+      propertyPath: <NeighboringCountries>k__BackingField.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 7324115645553430165, guid: 9499a8447a7ae9f41bccb271d016d2b0, type: 3}
+      propertyPath: <NeighboringCountries>k__BackingField.Array.data[0]
+      value: 
+      objectReference: {fileID: 1352688881}
+    - target: {fileID: 7324115645553430165, guid: 9499a8447a7ae9f41bccb271d016d2b0, type: 3}
+      propertyPath: <NeighboringCountries>k__BackingField.Array.data[1]
+      value: 
+      objectReference: {fileID: 1577080663}
+    - target: {fileID: 7324115645553430165, guid: 9499a8447a7ae9f41bccb271d016d2b0, type: 3}
+      propertyPath: <NeighboringCountries>k__BackingField.Array.data[2]
       value: 
       objectReference: {fileID: 482013616}
     - target: {fileID: 7781768831860570809, guid: 9499a8447a7ae9f41bccb271d016d2b0, type: 3}
@@ -311,7 +335,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1794872951763894525, guid: 13c6c2161c9e80844aa2dc6257810991, type: 3}
       propertyPath: m_Name
-      value: Eva
+      value: Lauri
       objectReference: {fileID: 0}
     - target: {fileID: 3211094038449830788, guid: 13c6c2161c9e80844aa2dc6257810991, type: 3}
       propertyPath: name
@@ -328,6 +352,22 @@ PrefabInstance:
     - target: {fileID: 3211094038449830788, guid: 13c6c2161c9e80844aa2dc6257810991, type: 3}
       propertyPath: playerColor.r
       value: 0.79469776
+      objectReference: {fileID: 0}
+    - target: {fileID: 3211094038449830788, guid: 13c6c2161c9e80844aa2dc6257810991, type: 3}
+      propertyPath: <PlayerName>k__BackingField
+      value: Lauri
+      objectReference: {fileID: 0}
+    - target: {fileID: 3211094038449830788, guid: 13c6c2161c9e80844aa2dc6257810991, type: 3}
+      propertyPath: <PlayerColor>k__BackingField.b
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3211094038449830788, guid: 13c6c2161c9e80844aa2dc6257810991, type: 3}
+      propertyPath: <PlayerColor>k__BackingField.g
+      value: 0.051568117
+      objectReference: {fileID: 0}
+    - target: {fileID: 3211094038449830788, guid: 13c6c2161c9e80844aa2dc6257810991, type: 3}
+      propertyPath: <PlayerColor>k__BackingField.r
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -395,7 +435,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1794872951763894525, guid: 13c6c2161c9e80844aa2dc6257810991, type: 3}
       propertyPath: m_Name
-      value: Alice
+      value: Mati
       objectReference: {fileID: 0}
     - target: {fileID: 3211094038449830788, guid: 13c6c2161c9e80844aa2dc6257810991, type: 3}
       propertyPath: name
@@ -416,6 +456,22 @@ PrefabInstance:
     - target: {fileID: 3211094038449830788, guid: 13c6c2161c9e80844aa2dc6257810991, type: 3}
       propertyPath: playerColor.r
       value: 0.7927215
+      objectReference: {fileID: 0}
+    - target: {fileID: 3211094038449830788, guid: 13c6c2161c9e80844aa2dc6257810991, type: 3}
+      propertyPath: <PlayerName>k__BackingField
+      value: Mati
+      objectReference: {fileID: 0}
+    - target: {fileID: 3211094038449830788, guid: 13c6c2161c9e80844aa2dc6257810991, type: 3}
+      propertyPath: <PlayerColor>k__BackingField.b
+      value: 0.37066412
+      objectReference: {fileID: 0}
+    - target: {fileID: 3211094038449830788, guid: 13c6c2161c9e80844aa2dc6257810991, type: 3}
+      propertyPath: <PlayerColor>k__BackingField.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3211094038449830788, guid: 13c6c2161c9e80844aa2dc6257810991, type: 3}
+      propertyPath: <PlayerColor>k__BackingField.r
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -813,7 +869,7 @@ RectTransform:
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: -32, y: -32}
-  m_SizeDelta: {x: 240, y: 50}
+  m_SizeDelta: {x: 260, y: 50}
   m_Pivot: {x: 1, y: 1}
 --- !u!114 &728139201
 MonoBehaviour:
@@ -924,7 +980,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 16e7723bc07574146abd2ed5ad3f598b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerIndicatorText: {fileID: 728139201}
+  _playerIndicatorText: {fileID: 728139201}
 --- !u!1 &816689420
 GameObject:
   m_ObjectHideFlags: 0
@@ -1080,6 +1136,14 @@ PrefabInstance:
       value: Colombia
       objectReference: {fileID: 0}
     - target: {fileID: 7324115645553430165, guid: 9499a8447a7ae9f41bccb271d016d2b0, type: 3}
+      propertyPath: <Owner>k__BackingField
+      value: 
+      objectReference: {fileID: 225367065}
+    - target: {fileID: 7324115645553430165, guid: 9499a8447a7ae9f41bccb271d016d2b0, type: 3}
+      propertyPath: <CountryName>k__BackingField
+      value: Colombia
+      objectReference: {fileID: 0}
+    - target: {fileID: 7324115645553430165, guid: 9499a8447a7ae9f41bccb271d016d2b0, type: 3}
       propertyPath: neighboringCountries.Array.size
       value: 3
       objectReference: {fileID: 0}
@@ -1095,6 +1159,22 @@ PrefabInstance:
       propertyPath: neighboringCountries.Array.data[2]
       value: 
       objectReference: {fileID: 1375237155}
+    - target: {fileID: 7324115645553430165, guid: 9499a8447a7ae9f41bccb271d016d2b0, type: 3}
+      propertyPath: <NeighboringCountries>k__BackingField.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 7324115645553430165, guid: 9499a8447a7ae9f41bccb271d016d2b0, type: 3}
+      propertyPath: <NeighboringCountries>k__BackingField.Array.data[0]
+      value: 
+      objectReference: {fileID: 1375237155}
+    - target: {fileID: 7324115645553430165, guid: 9499a8447a7ae9f41bccb271d016d2b0, type: 3}
+      propertyPath: <NeighboringCountries>k__BackingField.Array.data[1]
+      value: 
+      objectReference: {fileID: 1895385699}
+    - target: {fileID: 7324115645553430165, guid: 9499a8447a7ae9f41bccb271d016d2b0, type: 3}
+      propertyPath: <NeighboringCountries>k__BackingField.Array.data[2]
+      value: 
+      objectReference: {fileID: 1070382397}
     - target: {fileID: 7781768831860570809, guid: 9499a8447a7ae9f41bccb271d016d2b0, type: 3}
       propertyPath: m_LocalPosition.x
       value: -5.03
@@ -1190,7 +1270,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1794872951763894525, guid: 13c6c2161c9e80844aa2dc6257810991, type: 3}
       propertyPath: m_Name
-      value: Bob
+      value: Gonza
       objectReference: {fileID: 0}
     - target: {fileID: 3211094038449830788, guid: 13c6c2161c9e80844aa2dc6257810991, type: 3}
       propertyPath: name
@@ -1207,6 +1287,22 @@ PrefabInstance:
     - target: {fileID: 3211094038449830788, guid: 13c6c2161c9e80844aa2dc6257810991, type: 3}
       propertyPath: playerColor.g
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3211094038449830788, guid: 13c6c2161c9e80844aa2dc6257810991, type: 3}
+      propertyPath: <PlayerName>k__BackingField
+      value: Gonza
+      objectReference: {fileID: 0}
+    - target: {fileID: 3211094038449830788, guid: 13c6c2161c9e80844aa2dc6257810991, type: 3}
+      propertyPath: <PlayerColor>k__BackingField.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3211094038449830788, guid: 13c6c2161c9e80844aa2dc6257810991, type: 3}
+      propertyPath: <PlayerColor>k__BackingField.g
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3211094038449830788, guid: 13c6c2161c9e80844aa2dc6257810991, type: 3}
+      propertyPath: <PlayerColor>k__BackingField.r
+      value: 0.021978855
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1289,6 +1385,14 @@ PrefabInstance:
       value: "Sud\xE1frica"
       objectReference: {fileID: 0}
     - target: {fileID: 7324115645553430165, guid: 9499a8447a7ae9f41bccb271d016d2b0, type: 3}
+      propertyPath: <Owner>k__BackingField
+      value: 
+      objectReference: {fileID: 212171072}
+    - target: {fileID: 7324115645553430165, guid: 9499a8447a7ae9f41bccb271d016d2b0, type: 3}
+      propertyPath: <CountryName>k__BackingField
+      value: "Sud\xE1frica"
+      objectReference: {fileID: 0}
+    - target: {fileID: 7324115645553430165, guid: 9499a8447a7ae9f41bccb271d016d2b0, type: 3}
       propertyPath: neighboringCountries.Array.size
       value: 2
       objectReference: {fileID: 0}
@@ -1298,6 +1402,18 @@ PrefabInstance:
       objectReference: {fileID: 482013616}
     - target: {fileID: 7324115645553430165, guid: 9499a8447a7ae9f41bccb271d016d2b0, type: 3}
       propertyPath: neighboringCountries.Array.data[1]
+      value: 
+      objectReference: {fileID: 1357447070}
+    - target: {fileID: 7324115645553430165, guid: 9499a8447a7ae9f41bccb271d016d2b0, type: 3}
+      propertyPath: <NeighboringCountries>k__BackingField.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7324115645553430165, guid: 9499a8447a7ae9f41bccb271d016d2b0, type: 3}
+      propertyPath: <NeighboringCountries>k__BackingField.Array.data[0]
+      value: 
+      objectReference: {fileID: 482013616}
+    - target: {fileID: 7324115645553430165, guid: 9499a8447a7ae9f41bccb271d016d2b0, type: 3}
+      propertyPath: <NeighboringCountries>k__BackingField.Array.data[1]
       value: 
       objectReference: {fileID: 1357447070}
     - target: {fileID: 7781768831860570809, guid: 9499a8447a7ae9f41bccb271d016d2b0, type: 3}
@@ -1382,11 +1498,27 @@ PrefabInstance:
       value: "M\xE9xico"
       objectReference: {fileID: 0}
     - target: {fileID: 7324115645553430165, guid: 9499a8447a7ae9f41bccb271d016d2b0, type: 3}
+      propertyPath: <Owner>k__BackingField
+      value: 
+      objectReference: {fileID: 225367065}
+    - target: {fileID: 7324115645553430165, guid: 9499a8447a7ae9f41bccb271d016d2b0, type: 3}
+      propertyPath: <CountryName>k__BackingField
+      value: "M\xE9xico"
+      objectReference: {fileID: 0}
+    - target: {fileID: 7324115645553430165, guid: 9499a8447a7ae9f41bccb271d016d2b0, type: 3}
       propertyPath: neighboringCountries.Array.size
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7324115645553430165, guid: 9499a8447a7ae9f41bccb271d016d2b0, type: 3}
       propertyPath: neighboringCountries.Array.data[0]
+      value: 
+      objectReference: {fileID: 1577080663}
+    - target: {fileID: 7324115645553430165, guid: 9499a8447a7ae9f41bccb271d016d2b0, type: 3}
+      propertyPath: <NeighboringCountries>k__BackingField.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7324115645553430165, guid: 9499a8447a7ae9f41bccb271d016d2b0, type: 3}
+      propertyPath: <NeighboringCountries>k__BackingField.Array.data[0]
       value: 
       objectReference: {fileID: 1577080663}
     - target: {fileID: 7781768831860570809, guid: 9499a8447a7ae9f41bccb271d016d2b0, type: 3}
@@ -1503,6 +1635,14 @@ PrefabInstance:
       value: "Per\xFA"
       objectReference: {fileID: 0}
     - target: {fileID: 7324115645553430165, guid: 9499a8447a7ae9f41bccb271d016d2b0, type: 3}
+      propertyPath: <Owner>k__BackingField
+      value: 
+      objectReference: {fileID: 225367065}
+    - target: {fileID: 7324115645553430165, guid: 9499a8447a7ae9f41bccb271d016d2b0, type: 3}
+      propertyPath: <CountryName>k__BackingField
+      value: "Per\xFA"
+      objectReference: {fileID: 0}
+    - target: {fileID: 7324115645553430165, guid: 9499a8447a7ae9f41bccb271d016d2b0, type: 3}
       propertyPath: neighboringCountries.Array.size
       value: 2
       objectReference: {fileID: 0}
@@ -1512,6 +1652,18 @@ PrefabInstance:
       objectReference: {fileID: 1352688881}
     - target: {fileID: 7324115645553430165, guid: 9499a8447a7ae9f41bccb271d016d2b0, type: 3}
       propertyPath: neighboringCountries.Array.data[1]
+      value: 
+      objectReference: {fileID: 1577080663}
+    - target: {fileID: 7324115645553430165, guid: 9499a8447a7ae9f41bccb271d016d2b0, type: 3}
+      propertyPath: <NeighboringCountries>k__BackingField.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7324115645553430165, guid: 9499a8447a7ae9f41bccb271d016d2b0, type: 3}
+      propertyPath: <NeighboringCountries>k__BackingField.Array.data[0]
+      value: 
+      objectReference: {fileID: 1352688881}
+    - target: {fileID: 7324115645553430165, guid: 9499a8447a7ae9f41bccb271d016d2b0, type: 3}
+      propertyPath: <NeighboringCountries>k__BackingField.Array.data[1]
       value: 
       objectReference: {fileID: 1577080663}
     - target: {fileID: 7781768831860570809, guid: 9499a8447a7ae9f41bccb271d016d2b0, type: 3}
@@ -1771,6 +1923,14 @@ PrefabInstance:
       value: "Etiop\xEDa"
       objectReference: {fileID: 0}
     - target: {fileID: 7324115645553430165, guid: 9499a8447a7ae9f41bccb271d016d2b0, type: 3}
+      propertyPath: <Owner>k__BackingField
+      value: 
+      objectReference: {fileID: 212171072}
+    - target: {fileID: 7324115645553430165, guid: 9499a8447a7ae9f41bccb271d016d2b0, type: 3}
+      propertyPath: <CountryName>k__BackingField
+      value: "Etiop\xEDa"
+      objectReference: {fileID: 0}
+    - target: {fileID: 7324115645553430165, guid: 9499a8447a7ae9f41bccb271d016d2b0, type: 3}
       propertyPath: neighboringCountries.Array.size
       value: 2
       objectReference: {fileID: 0}
@@ -1780,6 +1940,18 @@ PrefabInstance:
       objectReference: {fileID: 482013616}
     - target: {fileID: 7324115645553430165, guid: 9499a8447a7ae9f41bccb271d016d2b0, type: 3}
       propertyPath: neighboringCountries.Array.data[1]
+      value: 
+      objectReference: {fileID: 1870893671}
+    - target: {fileID: 7324115645553430165, guid: 9499a8447a7ae9f41bccb271d016d2b0, type: 3}
+      propertyPath: <NeighboringCountries>k__BackingField.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7324115645553430165, guid: 9499a8447a7ae9f41bccb271d016d2b0, type: 3}
+      propertyPath: <NeighboringCountries>k__BackingField.Array.data[0]
+      value: 
+      objectReference: {fileID: 482013616}
+    - target: {fileID: 7324115645553430165, guid: 9499a8447a7ae9f41bccb271d016d2b0, type: 3}
+      propertyPath: <NeighboringCountries>k__BackingField.Array.data[1]
       value: 
       objectReference: {fileID: 1870893671}
     - target: {fileID: 7781768831860570809, guid: 9499a8447a7ae9f41bccb271d016d2b0, type: 3}
@@ -1948,6 +2120,14 @@ PrefabInstance:
       value: Sahara
       objectReference: {fileID: 0}
     - target: {fileID: 7324115645553430165, guid: 9499a8447a7ae9f41bccb271d016d2b0, type: 3}
+      propertyPath: <Owner>k__BackingField
+      value: 
+      objectReference: {fileID: 911637557}
+    - target: {fileID: 7324115645553430165, guid: 9499a8447a7ae9f41bccb271d016d2b0, type: 3}
+      propertyPath: <CountryName>k__BackingField
+      value: Sahara
+      objectReference: {fileID: 0}
+    - target: {fileID: 7324115645553430165, guid: 9499a8447a7ae9f41bccb271d016d2b0, type: 3}
       propertyPath: neighboringCountries.Array.size
       value: 3
       objectReference: {fileID: 0}
@@ -1961,6 +2141,22 @@ PrefabInstance:
       objectReference: {fileID: 1357447070}
     - target: {fileID: 7324115645553430165, guid: 9499a8447a7ae9f41bccb271d016d2b0, type: 3}
       propertyPath: neighboringCountries.Array.data[2]
+      value: 
+      objectReference: {fileID: 1870893671}
+    - target: {fileID: 7324115645553430165, guid: 9499a8447a7ae9f41bccb271d016d2b0, type: 3}
+      propertyPath: <NeighboringCountries>k__BackingField.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 7324115645553430165, guid: 9499a8447a7ae9f41bccb271d016d2b0, type: 3}
+      propertyPath: <NeighboringCountries>k__BackingField.Array.data[0]
+      value: 
+      objectReference: {fileID: 1895385699}
+    - target: {fileID: 7324115645553430165, guid: 9499a8447a7ae9f41bccb271d016d2b0, type: 3}
+      propertyPath: <NeighboringCountries>k__BackingField.Array.data[1]
+      value: 
+      objectReference: {fileID: 1357447070}
+    - target: {fileID: 7324115645553430165, guid: 9499a8447a7ae9f41bccb271d016d2b0, type: 3}
+      propertyPath: <NeighboringCountries>k__BackingField.Array.data[2]
       value: 
       objectReference: {fileID: 1870893671}
     - target: {fileID: 7781768831860570809, guid: 9499a8447a7ae9f41bccb271d016d2b0, type: 3}
@@ -2160,7 +2356,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a2121f7c464f18842965ec9b392db68f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  roundNoIndicatorText: {fileID: 2064448178}
+  _roundNoIndicatorText: {fileID: 2064448178}
 --- !u!1001 &6784324106916766418
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2182,6 +2378,14 @@ PrefabInstance:
       value: Argentina
       objectReference: {fileID: 0}
     - target: {fileID: 7324115645553430165, guid: 9499a8447a7ae9f41bccb271d016d2b0, type: 3}
+      propertyPath: <Owner>k__BackingField
+      value: 
+      objectReference: {fileID: 911637557}
+    - target: {fileID: 7324115645553430165, guid: 9499a8447a7ae9f41bccb271d016d2b0, type: 3}
+      propertyPath: <CountryName>k__BackingField
+      value: Argentina
+      objectReference: {fileID: 0}
+    - target: {fileID: 7324115645553430165, guid: 9499a8447a7ae9f41bccb271d016d2b0, type: 3}
       propertyPath: neighboringCountries.Array.size
       value: 2
       objectReference: {fileID: 0}
@@ -2191,6 +2395,18 @@ PrefabInstance:
       objectReference: {fileID: 1895385699}
     - target: {fileID: 7324115645553430165, guid: 9499a8447a7ae9f41bccb271d016d2b0, type: 3}
       propertyPath: neighboringCountries.Array.data[1]
+      value: 
+      objectReference: {fileID: 1375237155}
+    - target: {fileID: 7324115645553430165, guid: 9499a8447a7ae9f41bccb271d016d2b0, type: 3}
+      propertyPath: <NeighboringCountries>k__BackingField.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7324115645553430165, guid: 9499a8447a7ae9f41bccb271d016d2b0, type: 3}
+      propertyPath: <NeighboringCountries>k__BackingField.Array.data[0]
+      value: 
+      objectReference: {fileID: 1895385699}
+    - target: {fileID: 7324115645553430165, guid: 9499a8447a7ae9f41bccb271d016d2b0, type: 3}
+      propertyPath: <NeighboringCountries>k__BackingField.Array.data[1]
       value: 
       objectReference: {fileID: 1375237155}
     - target: {fileID: 7781768831860570809, guid: 9499a8447a7ae9f41bccb271d016d2b0, type: 3}

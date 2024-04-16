@@ -3,15 +3,23 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 
+
 public class RoundNoIndicator : MonoBehaviour
 {
-    [SerializeField] private TMP_Text roundNoIndicatorText;
+    // Referencia al texto que indica el número de ronda
+    [SerializeField] private TMP_Text _roundNoIndicatorText;
 
-    private void Awake() {
-        GameManager.OnRoundStart += OnRoundStart;
+
+    // Al inicio, suscribe la función UpdateRoundNoIndicator al evento OnRoundStart
+    private void Awake()
+    {
+        GameManager.OnRoundStart += UpdateRoundNoIndicator;
     }
 
-    private void OnRoundStart(object sender, System.EventArgs e) {
-        roundNoIndicatorText.text = "Round No: " + GameManager.Instance.RoundNo;
+
+    // Actualiza el indicador de número de ronda
+    private void UpdateRoundNoIndicator(object sender, System.EventArgs e)
+    {
+        _roundNoIndicatorText.text = "Round No: " + GameManager.Instance.RoundNo;
     }
 }
