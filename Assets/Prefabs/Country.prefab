@@ -46,10 +46,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 717189e96b6baaf4c846b4e983d8d5bc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  countryName: 
-  neighboringCountries: []
-  owner: {fileID: 0}
-  armiesAmount: 0
+  <CountryName>k__BackingField: 
+  <NeighboringCountries>k__BackingField: []
+  <Owner>k__BackingField: {fileID: 0}
 --- !u!61 &5603222380848456771
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -192,5 +191,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f937897f2d62cb34486c1041eeb99b9c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  country: {fileID: 7324115645553430165}
-  countrySprite: {fileID: 3535306345816349111}
+  _country: {fileID: 7324115645553430165}
+  _countrySprite: {fileID: 3535306345816349111}

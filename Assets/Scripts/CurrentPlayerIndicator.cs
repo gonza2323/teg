@@ -4,16 +4,24 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 
+
 public class CurrentPlayerIndicator : MonoBehaviour
 {
-    [SerializeField] private TMP_Text playerIndicatorText;
+    // Referencia al texto que indica el jugador actual
+    [SerializeField] private TMP_Text _playerIndicatorText;
 
-    private void Awake() {
-        GameManager.OnTurnStart += OnTurnStart;
+
+    // Al inicio, suscribe la función UpdatePlayerIndicator al evento OnTurnStart
+    private void Awake()
+    {
+        GameManager.OnTurnStart += UpdatePlayerIndicator;
     }
 
-    private void OnTurnStart(object sender, System.EventArgs e) {
-        playerIndicatorText.text = "Playing: " + GameManager.Instance.CurrentPlayer.playerName;
-        playerIndicatorText.color = GameManager.Instance.CurrentPlayer.playerColor;
+
+    // Actualiza el indicador de jugador actual
+    private void UpdatePlayerIndicator(object sender, System.EventArgs e)
+    {
+        _playerIndicatorText.text = "Playing: " + GameManager.Instance.CurrentPlayer.PlayerName;
+        _playerIndicatorText.color = GameManager.Instance.CurrentPlayer.PlayerColor;
     }
 }

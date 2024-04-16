@@ -3,9 +3,14 @@ using System.Collections.Generic;
 using UnityEditor.Build;
 using UnityEngine;
 
+
 public class Player : MonoBehaviour
 {
-    public string playerName;
-    public List<Country> ownedCountries;
-    public Color playerColor = Color.magenta;
+    // Datos del jugador
+    [field: SerializeField] public string PlayerName { get; private set; } = "DefaultName";
+    [field: SerializeField] public Color PlayerColor { get; private set; } = Color.magenta;
+
+
+    // Países que le pertenecen
+    public List<Country> OwnedCountries { get; private set; } = new List<Country>();
 }
