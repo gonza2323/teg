@@ -188,6 +188,46 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 947733912}
     m_Modifications:
+    - target: {fileID: 629735451534446626, guid: 9499a8447a7ae9f41bccb271d016d2b0, type: 3}
+      propertyPath: m_fontSize
+      value: 36
+      objectReference: {fileID: 0}
+    - target: {fileID: 629735451534446626, guid: 9499a8447a7ae9f41bccb271d016d2b0, type: 3}
+      propertyPath: m_fontStyle
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 629735451534446626, guid: 9499a8447a7ae9f41bccb271d016d2b0, type: 3}
+      propertyPath: m_fontColor.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 629735451534446626, guid: 9499a8447a7ae9f41bccb271d016d2b0, type: 3}
+      propertyPath: m_fontColor.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 629735451534446626, guid: 9499a8447a7ae9f41bccb271d016d2b0, type: 3}
+      propertyPath: m_fontColor.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 629735451534446626, guid: 9499a8447a7ae9f41bccb271d016d2b0, type: 3}
+      propertyPath: m_enableAutoSizing
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 629735451534446626, guid: 9499a8447a7ae9f41bccb271d016d2b0, type: 3}
+      propertyPath: m_fontColor32.rgba
+      value: 4294967295
+      objectReference: {fileID: 0}
+    - target: {fileID: 629735451534446626, guid: 9499a8447a7ae9f41bccb271d016d2b0, type: 3}
+      propertyPath: m_overrideHtmlColors
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 629735451534446626, guid: 9499a8447a7ae9f41bccb271d016d2b0, type: 3}
+      propertyPath: m_enableVertexGradient
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4344788518028850518, guid: 9499a8447a7ae9f41bccb271d016d2b0, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0.45000076
+      objectReference: {fileID: 0}
     - target: {fileID: 4965290572353807221, guid: 9499a8447a7ae9f41bccb271d016d2b0, type: 3}
       propertyPath: m_Name
       value: Brazil
@@ -868,8 +908,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -32, y: -32}
-  m_SizeDelta: {x: 260, y: 50}
+  m_AnchoredPosition: {x: -20, y: -20}
+  m_SizeDelta: {x: 280, y: 50}
   m_Pivot: {x: 1, y: 1}
 --- !u!114 &728139201
 MonoBehaviour:
@@ -893,8 +933,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: 'Playing: null'
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 125cb55b44b24c4393181402bc6200e6, type: 2}
+  m_sharedMaterial: {fileID: 2100000, guid: 125cb55b44b24c4393181402bc6200e6, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -918,8 +958,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 36
-  m_fontSizeBase: 36
+  m_fontSize: 42
+  m_fontSizeBase: 42
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -928,7 +968,7 @@ MonoBehaviour:
   m_HorizontalAlignment: 1
   m_VerticalAlignment: 256
   m_textAlignment: 65535
-  m_characterSpacing: 0
+  m_characterSpacing: 4
   m_wordSpacing: 0
   m_lineSpacing: 0
   m_lineSpacingMax: 0
@@ -1040,15 +1080,15 @@ MonoBehaviour:
       m_Calls: []
   m_text: Finalizar Turno
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: dc36b3fdc14f47ebb36fd484a67e268a, type: 2}
-  m_sharedMaterial: {fileID: 2140032, guid: dc36b3fdc14f47ebb36fd484a67e268a, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 125cb55b44b24c4393181402bc6200e6, type: 2}
+  m_sharedMaterial: {fileID: 2100000, guid: 125cb55b44b24c4393181402bc6200e6, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4281479730
-  m_fontColor: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
+    rgba: 4294967295
+  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -1065,17 +1105,17 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 24
-  m_fontSizeBase: 24
+  m_fontSize: 32
+  m_fontSizeBase: 32
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 0
   m_HorizontalAlignment: 2
-  m_VerticalAlignment: 512
+  m_VerticalAlignment: 4096
   m_textAlignment: 65535
-  m_characterSpacing: 12
+  m_characterSpacing: 10
   m_wordSpacing: 0
   m_lineSpacing: 0
   m_lineSpacingMax: 0
@@ -1123,6 +1163,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 947733912}
     m_Modifications:
+    - target: {fileID: 4344788518028850518, guid: 9499a8447a7ae9f41bccb271d016d2b0, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0.45000076
+      objectReference: {fileID: 0}
     - target: {fileID: 4965290572353807221, guid: 9499a8447a7ae9f41bccb271d016d2b0, type: 3}
       propertyPath: m_Name
       value: Colombia
@@ -1372,6 +1416,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 947733912}
     m_Modifications:
+    - target: {fileID: 4344788518028850518, guid: 9499a8447a7ae9f41bccb271d016d2b0, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0.45000076
+      objectReference: {fileID: 0}
     - target: {fileID: 4965290572353807221, guid: 9499a8447a7ae9f41bccb271d016d2b0, type: 3}
       propertyPath: m_Name
       value: South Africa
@@ -1485,6 +1533,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 947733912}
     m_Modifications:
+    - target: {fileID: 4344788518028850518, guid: 9499a8447a7ae9f41bccb271d016d2b0, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0.45000076
+      objectReference: {fileID: 0}
     - target: {fileID: 4965290572353807221, guid: 9499a8447a7ae9f41bccb271d016d2b0, type: 3}
       propertyPath: m_Name
       value: Mexico
@@ -1622,6 +1674,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 947733912}
     m_Modifications:
+    - target: {fileID: 4344788518028850518, guid: 9499a8447a7ae9f41bccb271d016d2b0, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0.45000076
+      objectReference: {fileID: 0}
     - target: {fileID: 4965290572353807221, guid: 9499a8447a7ae9f41bccb271d016d2b0, type: 3}
       propertyPath: m_Name
       value: Peru
@@ -1813,7 +1869,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Navigation:
-    m_Mode: 3
+    m_Mode: 0
     m_WrapAround: 0
     m_SelectOnUp: {fileID: 0}
     m_SelectOnDown: {fileID: 0}
@@ -1822,12 +1878,12 @@ MonoBehaviour:
   m_Transition: 1
   m_Colors:
     m_NormalColor: {r: 1, g: 0.6472528, b: 0, a: 1}
-    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
-    m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
-    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_HighlightedColor: {r: 1, g: 0.80067384, b: 0.43867922, a: 1}
+    m_PressedColor: {r: 1, g: 0.64705884, b: 0, a: 1}
+    m_SelectedColor: {r: 0.9607844, g: 0.61960787, b: 0, a: 1}
     m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
     m_ColorMultiplier: 1
-    m_FadeDuration: 0.1
+    m_FadeDuration: 0.05
   m_SpriteState:
     m_HighlightedSprite: {fileID: 0}
     m_PressedSprite: {fileID: 0}
@@ -1909,6 +1965,10 @@ PrefabInstance:
     - target: {fileID: 942029950372007525, guid: 9499a8447a7ae9f41bccb271d016d2b0, type: 3}
       propertyPath: m_LocalPosition.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4344788518028850518, guid: 9499a8447a7ae9f41bccb271d016d2b0, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0.45000076
       objectReference: {fileID: 0}
     - target: {fileID: 4965290572353807221, guid: 9499a8447a7ae9f41bccb271d016d2b0, type: 3}
       propertyPath: m_Name
@@ -2107,6 +2167,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 947733912}
     m_Modifications:
+    - target: {fileID: 4344788518028850518, guid: 9499a8447a7ae9f41bccb271d016d2b0, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0.45000076
+      objectReference: {fileID: 0}
     - target: {fileID: 4965290572353807221, guid: 9499a8447a7ae9f41bccb271d016d2b0, type: 3}
       propertyPath: m_Name
       value: Sahara
@@ -2244,8 +2308,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 32, y: -32}
-  m_SizeDelta: {x: 240, y: 50}
+  m_AnchoredPosition: {x: 20, y: -20}
+  m_SizeDelta: {x: 320, y: 50}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &2064448178
 MonoBehaviour:
@@ -2269,8 +2333,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: 'Round No: 0'
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 125cb55b44b24c4393181402bc6200e6, type: 2}
+  m_sharedMaterial: {fileID: 2100000, guid: 125cb55b44b24c4393181402bc6200e6, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -2294,8 +2358,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 36
-  m_fontSizeBase: 36
+  m_fontSize: 42
+  m_fontSizeBase: 42
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -2304,7 +2368,7 @@ MonoBehaviour:
   m_HorizontalAlignment: 1
   m_VerticalAlignment: 256
   m_textAlignment: 65535
-  m_characterSpacing: 0
+  m_characterSpacing: 4
   m_wordSpacing: 0
   m_lineSpacing: 0
   m_lineSpacingMax: 0
@@ -2365,6 +2429,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 947733912}
     m_Modifications:
+    - target: {fileID: 4344788518028850518, guid: 9499a8447a7ae9f41bccb271d016d2b0, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0.45000076
+      objectReference: {fileID: 0}
     - target: {fileID: 4965290572353807221, guid: 9499a8447a7ae9f41bccb271d016d2b0, type: 3}
       propertyPath: m_Name
       value: Argentina

@@ -11,7 +11,7 @@ public class Country : MonoBehaviour
     [field: SerializeField] public string CountryName { get; private set; }
     [field: SerializeField] public List<Country> NeighboringCountries { get; private set; }
     [field: SerializeField] public Player Owner { get; private set; }
-    public int ArmiesAmount { get; private set; } = 5;
+    public int TroopsAmount { get; private set; } = 1;
 
 
     // Al hacer click en el país, decir si pertenece al jugador actual
