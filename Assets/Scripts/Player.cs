@@ -11,6 +11,6 @@ public class Player : MonoBehaviour
     [field: SerializeField] public Color PlayerColor { get; private set; } = Color.magenta;
 
 
-    // Países que le pertenecen
+    // Paúes que le pertenecen
     public List<Country> OwnedCountries { get; private set; } = new List<Country>();
 }
