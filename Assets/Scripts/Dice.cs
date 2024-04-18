@@ -22,27 +22,27 @@ public class Dice : MonoBehaviour
     * Si uno de los jugadores tiene uno o mas dados que el otro esos dados
      no entran en juego
      */
+
+    //Referencias a los objetos del canvas
     public GameObject OnClickDice;
     public GameObject OnClickRoll;
     public GameObject OnclickContinue;
     public TMP_Text diceResult; 
     public void rollDice()
 
-    {
+    {   //Se crea un numero random
         System.Random random = new System.Random();
         
         int randomFace = random.Next(1, 7);
-        
+        //Al llamar a la funcion hace visibles el texto con el resultado del dado y el boton
         OnClickRoll.SetActive(true);
         OnclickContinue.SetActive(true);
-        diceResult.text = randomFace.ToString();
-
-        Debug.Log("Dice " + ":" + randomFace); 
+        diceResult.text = randomFace.ToString(); 
         
     }
 
     public void exit()
-    {
+    {//Hace invisibles el boton y el texto
         OnClickRoll.SetActive(false);
         OnclickContinue.SetActive(false);
     }
