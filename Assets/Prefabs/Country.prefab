@@ -224,7 +224,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 717189e96b6baaf4c846b4e983d8d5bc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  <CountryName>k__BackingField: 
+  <CountryName>k__BackingField: Africa
   <NeighboringCountries>k__BackingField: []
   <Owner>k__BackingField: {fileID: 0}
 --- !u!61 &5603222380848456771
