@@ -51,6 +51,8 @@ public class GameManager : MonoBehaviour
         foreach (Country country in countries)
             country.Owner.OwnedCountries.Add(country);
 
+
+
         // Empezar juego
         StartGame();
     }
