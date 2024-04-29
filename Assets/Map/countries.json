@@ -1,0 +1,238 @@
+{
+  "countries": [
+    {
+      "id": "arg",
+      "name": "Argentina",
+      "neighbors": [
+        "chl",
+        "col",
+        "bra",
+        "ury"
+      ],
+      "color": "#00ddff"
+    },
+    {
+      "id": "chl",
+      "name": "Chile",
+      "neighbors": [
+        "col",
+        "arg"
+      ],
+      "color": "#ff0000"
+    },
+    {
+      "id": "ury",
+      "name": "Uruguay",
+      "neighbors": [
+        "arg",
+        "bra"
+      ],
+      "color": "#ff007a"
+    },
+    {
+      "id": "bra",
+      "name": "Brasil",
+      "neighbors": [
+        "ury",
+        "arg",
+        "col"
+      ],
+      "color": "#00ff35"
+    },
+    {
+      "id": "col",
+      "name": "Colombia",
+      "neighbors": [
+        "chl",
+        "mex",
+        "bra",
+        "arg"
+      ],
+      "color": "#ffbe00"
+    },
+    {
+      "id": "mex",
+      "name": "México",
+      "neighbors": [
+        "col",
+        "ore",
+        "nyc"
+      ],
+      "color": "#ff00e4"
+    },
+    {
+      "id": "ore",
+      "name": "Oregon",
+      "neighbors": [
+        "ask",
+        "can",
+        "nyc",
+        "mex"
+      ],
+      "color": "#1db73d"
+    },
+    {
+      "id": "nyc",
+      "name": "Nueva York",
+      "neighbors": [
+        "mex",
+        "ore",
+        "can",
+        "tnv",
+        "grl"
+      ],
+      "color": "#5400ff"
+    },
+    {
+      "id": "ask",
+      "name": "Alaska",
+      "neighbors": [
+        "ore",
+        "can"
+      ],
+      "color": "#8cd7d8"
+    },
+    {
+      "id": "can",
+      "name": "Canadá",
+      "neighbors": [
+        "ore",
+        "ask",
+        "tnv",
+        "nyc"
+      ],
+      "color": "#ff384a"
+    },
+    {
+      "id": "tnv",
+      "name": "Terranova",
+      "neighbors": [
+        "nyc",
+        "can",
+        "grl"
+      ],
+      "color": "#ff7a00"
+    },
+    {
+      "id": "grl",
+      "name": "Groenlandia",
+      "neighbors": [
+        "nyc",
+        "tnv"
+      ],
+      "color": "#74ffdc"
+    },
+    {
+      "id": "isl",
+      "name": "Islandia",
+      "neighbors": [
+        ""
+      ],
+      "color": "#caff2e"
+    },
+    {
+      "id": "gbr",
+      "name": "Reino Unido",
+      "neighbors": [
+        ""
+      ],
+      "color": "#b90000"
+    },
+    {
+      "id": "swe",
+      "name": "Suecia",
+      "neighbors": [
+        ""
+      ],
+      "color": "#4d00ab"
+    },
+    {
+      "id": "esp",
+      "name": "España",
+      "neighbors": [
+        ""
+      ],
+      "color": "#fff400"
+    },
+    {
+      "id": "fra",
+      "name": "Francia",
+      "neighbors": [
+        ""
+      ],
+      "color": "#0013d8"
+    },
+    {
+      "id": "deu",
+      "name": "Alemania",
+      "neighbors": [
+        ""
+      ],
+      "color": "#515151"
+    },
+    {
+      "id": "ita",
+      "name": "Italia",
+      "neighbors": [
+        ""
+      ],
+      "color": "#088d00"
+    },
+    {
+      "id": "rus",
+      "name": "Rusia",
+      "neighbors": [
+        ""
+      ],
+      "color": "#f0239d"
+    },
+    {
+      "id": "sah",
+      "name": "Sahara",
+      "neighbors": [
+        ""
+      ],
+      "color": "#ffda43"
+    },
+    {
+      "id": "egy",
+      "name": "Egipto",
+      "neighbors": [
+        ""
+      ],
+      "color": "#f7980a"
+    },
+    {
+      "id": "cod",
+      "name": "Congo",
+      "neighbors": [
+        ""
+      ],
+      "color": "#0d8d00"
+    },
+    {
+      "id": "eth",
+      "name": "Etioipía",
+      "neighbors": [
+        ""
+      ],
+      "color": "#419af1"
+    },
+    {
+      "id": "zaf",
+      "name": "Sudáfrica",
+      "neighbors": [
+        ""
+      ],
+      "color": "#ff4500"
+    },
+    {
+      "id": "mdg",
+      "name": "Madagascar",
+      "neighbors": [
+        ""
+      ],
+      "color": "#0ed031"
+    }
+  ]
+}

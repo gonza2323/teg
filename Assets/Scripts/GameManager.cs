@@ -23,8 +23,8 @@ public class GameManager : MonoBehaviour
 
 
     // Mapa y jugadores
-    [SerializeField] private List<Country> countries;
-    [SerializeField] private List<Player> players;
+    [field: SerializeField] public List<Country> Countries { get; private set; }
+    [field: SerializeField] public List<Player> Players { get; private set; }
 
 
     // Estado del juego
@@ -48,10 +48,8 @@ public class GameManager : MonoBehaviour
     {
         // Agregar pa˙êes a su dueÒo
         // TODO: Los pa˙êes deben sortearse
-        foreach (Country country in countries)
-            country.Owner.OwnedCountries.Add(country);
-
-
+        foreach (Country country in Countries)
+            country.owner.OwnedCountries.Add(country);
 
         // Empezar juego
         StartGame();
@@ -72,7 +70,7 @@ public class GameManager : MonoBehaviour
     {
         RoundNo++;
         _currentPlayerIndex = 0;
-        CurrentPlayer = players[_currentPlayerIndex];
+        CurrentPlayer = Players[_currentPlayerIndex];
         Debug.Log("Round " + RoundNo + " started.");
         OnRoundStart?.Invoke(this, EventArgs.Empty);
 
@@ -85,7 +83,7 @@ public class GameManager : MonoBehaviour
     private void StartTurn()
     {
         _currentPlayerIndex++;
-        CurrentPlayer = players[_currentPlayerIndex];
+        CurrentPlayer = Players[_currentPlayerIndex];
         Debug.Log(CurrentPlayer.PlayerName + "'s turn started.");
         OnTurnStart?.Invoke(this, EventArgs.Empty);
     }
@@ -97,7 +95,7 @@ public class GameManager : MonoBehaviour
         Debug.Log(CurrentPlayer.PlayerName + "'s turn ended.");
         OnTurnEnd?.Invoke(this, EventArgs.Empty);
         
-        if (_currentPlayerIndex + 1 < players.Count)
+        if (_currentPlayerIndex + 1 < Players.Count)
             StartTurn();
         else
             EndRound();
