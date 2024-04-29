@@ -24,13 +24,13 @@ public class CountryVisual : MonoBehaviour
     // Actualizar indicador de cantidad de tropas
     private void UpdateTroopsAmount(object sender, EventArgs e)
     {
-        _troopsAmountIndicator.text = _country.TroopsAmount.ToString();
+        _troopsAmountIndicator.text = _country.troopsAmount.ToString();
     }
 
 
     // Colorear país según el color de su dueño
     private void SetColorToOwners(object sender, System.EventArgs e)
     {
-        _countrySprite.color = _country.Owner.PlayerColor;
+        _countrySprite.color = _country.owner.PlayerColor;
     }
 }
