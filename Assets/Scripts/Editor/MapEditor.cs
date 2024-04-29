@@ -249,7 +249,7 @@ public class MapEditor : EditorWindow
                         settings.spriteMode = (int)SpriteImportMode.Single;
                         settings.textureType = TextureImporterType.Sprite;
                         settings.spritePixelsPerUnit = 1;
-                        settings.spriteAlignment = 6;
+                        settings.spriteAlignment = (int)SpriteAlignment.BottomLeft;
                         settings.filterMode = UnityEngine.FilterMode.Point;
 
                         importer.SetTextureSettings(settings);

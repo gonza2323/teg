@@ -46,10 +46,13 @@ public class GameManager : MonoBehaviour
     // Antes de empezar juego
     private void Start()
     {
-        // Agregar paúes a su dueño
-        // TODO: Los paúes deben sortearse
-        foreach (Country country in Countries)
-            country.owner.OwnedCountries.Add(country);
+        // Repartir países y agergarlos a su dueño
+        for (int i = 0; i < Countries.Count; i++)
+        {
+            Player player = Players[i % Players.Count];
+            Countries[i].owner = player;
+            player.OwnedCountries.Add(Countries[i]);
+        }
 
         // Empezar juego
         StartGame();
