@@ -9,12 +9,21 @@ using System.Linq;
 using Unity.Properties;
 using UnityEngine.Rendering;
 using NUnit.Framework;
+using System.IO;
 
 
 public class MapEditor : EditorWindow
 {
+    // Referencias necesarias
     GameObject mapObject;
+    string countriesDataSavePath = "Assets/Map/countries.json";
+    string mapTextureSavePath = "Assets/Map/mapTexture.png";
+    
     GameObject countryPrefab;
+    TextAsset countriesDataJson;
+    Texture2D countriesTexture;
+
+    private Color32 NO_TEXTURE_COLOR = new Color32(255, 0, 255, 255);
 
 
     // Estructura que se serializa a json para guardar varios países
@@ -24,15 +33,14 @@ public class MapEditor : EditorWindow
         public List<CountrySaveData> countries = new List<CountrySaveData>();
     }
 
-
     // Estructura que se serializa a json para guardar un país
     [System.Serializable]
     public class CountrySaveData
     {
         public string id;
         public string name;
-        public List<string> neighbors= new List<string>();
         public string color;
+        public List<string> neighbors= new List<string>();
     }
 
 
@@ -57,129 +65,151 @@ public class MapEditor : EditorWindow
     }
 
 
-    // Interfaz. Tampoco entiendo mucho pero funciona
+    // Definir la interfaz
     public void OnGUI()
     {
         GUILayout.Label("Map generator", EditorStyles.boldLabel);
 
-        // Referencias
+        GUILayout.Label("Saving Map", EditorStyles.boldLabel);
+        // Mapa que se va a guardar
         mapObject = EditorGUILayout.ObjectField("Map Object", mapObject, typeof(GameObject), true) as GameObject;
-        countryPrefab = EditorGUILayout.ObjectField("Country Prefab", countryPrefab, typeof(GameObject), false) as GameObject;
+        // Dirección donde guardar los datos de los países
+        countriesDataSavePath = EditorGUILayout.TextField("Data save path", countriesDataSavePath);
+        // Dirección donde guardar textura del mapa
+        mapTextureSavePath = EditorGUILayout.TextField("Texture save path", mapTextureSavePath);
 
-        // Botones
+        // Botón para guardar mapa
         if (GUILayout.Button("Save Map"))
+        {
             if (mapObject != null)
                 SaveMap();
             else
-                Debug.LogError("Map object not set");
+                Debug.LogError("Map object not set. Did not save.");
+        }
 
+        GUILayout.Label("Loading map", EditorStyles.boldLabel);
+        // Prefab para construir países al cargar mapa
+        countryPrefab = EditorGUILayout.ObjectField("Country Prefab", countryPrefab, typeof(GameObject), false) as GameObject;
+        // Dirección de dónde cargar los datos de los países
+        countriesDataJson = EditorGUILayout.ObjectField("Countries JSON", countriesDataJson, typeof(TextAsset), false) as TextAsset;
+        // Textura que contiene a los países
+        countriesTexture = EditorGUILayout.ObjectField("Countries Texture", countriesTexture, typeof(Texture2D), false) as Texture2D;
+
+        // Botón para cargar mapa
         if (GUILayout.Button("Load Map"))
         {
-            if (countryPrefab != null)
-                LoadMap();
-            else
-                Debug.LogError("Country prefab not set");
+            if (countriesDataJson == null)
+            {
+                Debug.LogError("Countries json file not set. Did not load.");
+                return;
+            }
+            if (countriesTexture == null)
+            {
+                Debug.LogError("Map texture not set. Did not load.");
+                return;
+            }
+            if (countryPrefab == null)
+            {
+                Debug.LogError("Country prefab not set. Did not load.");
+                return;
+            }
+            LoadMap();
         }
     }
 
 
-    // Guarda el mapa actual. Los sprites en una textura
-    // y los datos en .json.
+    // Guarda el mapa actual a un .json
+    // y sus sprites a una textura
     private void SaveMap()
     {
+        // Estructura para guardar los datos
         CountriesSaveData countriesData = new CountriesSaveData();
 
+        // Obtenemos los países del mapa
+        Country[] countries = mapObject.GetComponentsInChildren<Country>();
 
-        // A cada objecto hijo del mapa (país), lo guardamos en countriesData
-        foreach (Transform child in mapObject.transform)
+        if (countries.Length == 0)
         {
-            if (child.TryGetComponent<Country>(out Country country))
+            Debug.LogError("Map has no countries. Did not save.");
+            return;
+        }
+
+        // Procesamos cada país
+        foreach (Country country in countries)
+        {
+            CountrySaveData countrySaveData = new CountrySaveData {
+                id = country.Id,
+                name = country.CountryName,
+            };
+
+            // Si el país tiene sprite, guardamos el color
+            SpriteRenderer renderer = country.GetComponentInChildren<SpriteRenderer>();
+            if (renderer != null)
             {
-                CountrySaveData countrySaveData = new CountrySaveData {
-                    id = country.Id,
-                    name = country.CountryName,
-                };
-
-                var renderer = child.GetComponentInChildren<SpriteRenderer>();
-                if (renderer != null)
-                    countrySaveData.color = '#' + ColorUtility.ToHtmlStringRGB(renderer.color);
-                
-                foreach (Country neighbor in country.NeighboringCountries)
-                    countrySaveData.neighbors.Add(neighbor.Id);
-
-                countriesData.countries.Add(countrySaveData);
+                countrySaveData.color = '#' + ColorUtility.ToHtmlStringRGB(renderer.color);
+                // TODO: Actualizar textura
             }
+            else
+            {
+                Debug.LogWarning($"Country ({country.Id}) \"{country.CountryName}\" has not sprite renderer or no sprite. It was saved without a texture.");
+                countrySaveData.color = '#' + ColorUtility.ToHtmlStringRGB(NO_TEXTURE_COLOR);
+            }
+            
+            // Guardamos sus vecinos
+            foreach (Country neighbor in country.NeighboringCountries)
+            {
+                if (neighbor == country)
+                {
+                    Debug.LogWarning($"Country ({country.Id}) \"{country.CountryName}\" is connected to itself. Connection was not saved.");
+                    continue;
+                }
+
+                if (!neighbor.NeighboringCountries.Contains(country))
+                    Debug.LogWarning($"Country ({country.Id}) \"{country.CountryName}\" has a one-way connection to ({neighbor.Id}) \"{neighbor.CountryName}\".");
+
+                countrySaveData.neighbors.Add(neighbor.Id);
+            }
+
+            if (countrySaveData.neighbors.Count == 0)
+                Debug.LogWarning($"Country ({country.Id}) \"{country.CountryName}\" has no connections to other countries.");
+            
+            // Añadimos la data del país a la lista que será guardada
+            countriesData.countries.Add(countrySaveData);
         }
 
-        // Pasamos countriesData a JSON
-        string json = JsonUtility.ToJson(countriesData, true);
-
-        // Actualizamos los assets
-        UpdateAsset(json);
+        // Guardamos los datos de los países
+        SaveCountriesData(countriesData);
     }
 
 
-    private void UpdateAsset(string json)
+    private void SaveCountriesData(CountriesSaveData countriesData)
     {
-        string folderPath = "Assets/Map";
-        string filePath = folderPath + "/countries.json";
+        string directoryPath = Path.GetDirectoryName(countriesDataSavePath);
+        string countriesDataJson = JsonUtility.ToJson(countriesData, true);
 
-        // Check if the folder exists, if not, create it
-        if (!AssetDatabase.IsValidFolder(folderPath))
-        {
-            AssetDatabase.CreateFolder("Assets", "Map");
-        }
+        // Crear directorio de guardado si no existe.
+        if (!Directory.Exists(directoryPath))
+            Directory.CreateDirectory(directoryPath);
 
-        // Check if the file already exists
-        if (AssetDatabase.LoadAssetAtPath<TextAsset>(filePath) == null)
-        {
-            System.IO.File.WriteAllText(Application.dataPath + "/Map/countries.json", json); // Create an empty JSON file
-            AssetDatabase.Refresh(); // Refresh the asset database to reflect changes
-            AssetDatabase.SaveAssets(); // Save the assets to disk
-
-            Debug.Log("Created new countries.json");
-        } else
-        {
-            // If the file already exists, update it
-            System.IO.File.WriteAllText(Application.dataPath + "/Map/countries.json", json); // Overwrite existing file with new data
-            AssetDatabase.Refresh(); // Refresh the asset database to reflect changes
-            AssetDatabase.SaveAssets(); // Save the assets to disk
-
-            Debug.Log("Updated countries.json");
-        }
+        // Guardar json
+        System.IO.File.WriteAllText(countriesDataSavePath, countriesDataJson);
+        Debug.Log("Saved countries data at: " + countriesDataSavePath);
+        AssetDatabase.Refresh();
     }
 
 
-    // TODO:
-    // Carga el mapa desde una textura, generando sprites
-    // y los datos desde un .json.
+    // Carga el mapa desde una textura, generando sprites para cada país,
+    // y un json con la información de cada país.
     private void LoadMap()
     {
-        // Cargar json y textura
-        TextAsset countriesJson = AssetDatabase.LoadAssetAtPath<TextAsset>("Assets/Map/countries.json");
-        Texture2D mapTexture = AssetDatabase.LoadAssetAtPath<Texture2D>("Assets/Map/mapTexture.png");
-
-        if (countriesJson == null)
-        {
-            Debug.LogError("countries.json was not found. Make sure it's called countries.json and it's placed inside Map/");
-            // return;
-        }
-
-        if (mapTexture == null)
-        {
-            Debug.LogError("Map texture was not found. Make sure it's called mapTexture.png and it's placed inside Map/");
-            return;
-        }
-
-
-        // Procear json
-        CountriesSaveData countriesSaveData = JsonUtility.FromJson<CountriesSaveData>(countriesJson.text);
-
+        // Intentar parsear json
+        CountriesSaveData countriesSaveData = JsonUtility.FromJson<CountriesSaveData>(countriesDataJson.text);
         if (countriesSaveData == null)
         {
-            Debug.LogError("Could not parse countries.json");
+            Debug.LogError("Could not parse countries json file. Did not load.");
             return;
         }
+
 
         var colorsToCountries = new Dictionary<Color, CountryData>();
 
@@ -205,9 +235,9 @@ public class MapEditor : EditorWindow
 
         // Procesar textura
         // Código asqueroso y lento, pero funciona
-        Color32[] mapPixels = mapTexture.GetPixels32();
-        int width = mapTexture.width;
-        int height = mapTexture.height;
+        Color32[] mapPixels = countriesTexture.GetPixels32();
+        int width = countriesTexture.width;
+        int height = countriesTexture.height;
 
         string folderPath = "Assets/Map/CountrySprites/";
         bool alphaErrorShowned = false;
@@ -340,6 +370,7 @@ public class MapEditor : EditorWindow
         // Mark the scene as dirty so the changes are saved
         EditorSceneManager.MarkSceneDirty(EditorSceneManager.GetActiveScene());
     }
+
 
     private Texture2D CreateCountryTexture(Color32[] mapPixels, int pixelX, int pixelY, int width, int height, out Vector2 pos, out Vector2 avgPos)
     {
