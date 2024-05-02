@@ -8,6 +8,7 @@ using Codice.Client.BaseCommands;
 using System.Linq;
 using Unity.Properties;
 using UnityEngine.Rendering;
+using NUnit.Framework;
 
 
 public class MapEditor : EditorWindow
@@ -42,6 +43,7 @@ public class MapEditor : EditorWindow
         public string name = "invalid";
         public List<string> neighbors = new List<string>();
         public Vector2 position = Vector2.zero;
+        public Vector2 indicatorPos = Vector2.zero;
         public Sprite sprite;
     }
 
@@ -85,7 +87,6 @@ public class MapEditor : EditorWindow
     // y los datos en .json.
     private void SaveMap()
     {
-        return;
         CountriesSaveData countriesData = new CountriesSaveData();
 
 
@@ -99,16 +100,16 @@ public class MapEditor : EditorWindow
                     name = country.CountryName,
                 };
 
-                Color color = new Color(Random.Range(0f, 1f), Random.Range(0f, 1f), Random.Range(0f, 1f));
-                countrySaveData.color = '#' + ColorUtility.ToHtmlStringRGB(color);
-
+                var renderer = child.GetComponentInChildren<SpriteRenderer>();
+                if (renderer != null)
+                    countrySaveData.color = '#' + ColorUtility.ToHtmlStringRGB(renderer.color);
+                
                 foreach (Country neighbor in country.NeighboringCountries)
                     countrySaveData.neighbors.Add(neighbor.Id);
 
                 countriesData.countries.Add(countrySaveData);
             }
         }
-
 
         // Pasamos countriesData a JSON
         string json = JsonUtility.ToJson(countriesData, true);
@@ -219,13 +220,12 @@ public class MapEditor : EditorWindow
                 switch (color.a)
                 {
                     case 255:
-                        Texture2D countryTexture = CreateCountryTexture(mapPixels, x, y, width, height, out int minX);
+                        Texture2D countryTexture = CreateCountryTexture(mapPixels, x, y, width, height, out Vector2 pos, out Vector2 avgPos);
                         CountryData countryData;
                         string fileName;
 
                         if (colorsToCountries.TryGetValue((Color)color, out countryData))
                         {
-                            countryData.position = new Vector2(minX, y);
                             fileName = countryData.id;
                         } else 
                         {
@@ -234,6 +234,8 @@ public class MapEditor : EditorWindow
                             colorsToCountries[(Color)color] = countryData;
                             fileName = ColorUtility.ToHtmlStringRGB(color);
                         }
+                        countryData.position = pos;
+                        countryData.indicatorPos = avgPos;
 
                         // Guardar la imagen del país
                         string path = folderPath + fileName + ".png";
@@ -278,6 +280,8 @@ public class MapEditor : EditorWindow
 
         // Crear mapa con países
         GameObject map = new GameObject("Map");
+        List<Country> countries = new List<Country>();
+        var countriesToCountryData = new Dictionary<Country, CountryData>();
 
         foreach (KeyValuePair<Color, CountryData> pair in colorsToCountries)
         {
@@ -287,31 +291,63 @@ public class MapEditor : EditorWindow
             GameObject country = PrefabUtility.InstantiatePrefab(countryPrefab, map.transform) as GameObject;
             country.name = countryData.name;
             country.transform.position = countryData.position;
-            
 
-            Country countryScript = country.GetComponent<Country>();
-            countryScript.Init(countryData.id, countryData.name);
-
-            if (countryData.sprite != null)
+            if (country.TryGetComponent<Country>(out Country countryScript))
             {
-                SpriteRenderer spriteRenderer = country.GetComponentInChildren<SpriteRenderer>();
-                spriteRenderer.color = color;
-                spriteRenderer.sprite = countryData.sprite;
+                countryScript.Init(countryData.id, countryData.name);
+                countriesToCountryData.Add(countryScript, countryData);
+                countries.Add(countryScript);
+            }
+            else
+                Debug.LogError("Country prefab has no country script");
+
+            SpriteRenderer spriteRenderer = country.GetComponentInChildren<SpriteRenderer>();
+            if (spriteRenderer != null)
+            {
+                if (countryData.sprite != null)
+                {
+                    spriteRenderer.color = color;
+                    spriteRenderer.sprite = countryData.sprite;
+                } else
+                {
+                    Debug.LogError($"Country {countryData.id} has no texture");
+                }
             } else
-                Debug.LogError($"Country {countryData.id} has no texture");
+                Debug.LogError("Country prefab has no sprite renderers");
+
+            Canvas troopIndicator = country.GetComponentInChildren<Canvas>();
+            if (troopIndicator != null)
+                troopIndicator.transform.localPosition = countryData.indicatorPos;
+            else
+                Debug.LogError("Country prfab has no troop number indicator UI");
+        }
+
+        // Cargar conecciones entre países
+        foreach (KeyValuePair<Country, CountryData> pair in countriesToCountryData)
+        {
+            Country country = pair.Key;
+            List<string> neighborIds = pair.Value.neighbors;
+
+            List<Country> neighbors = countries.Where(c => neighborIds.Contains(c.Id)).ToList();
+            country.SetNeighbors(neighbors);
+
+            if (neighbors.Count == 0)
+                Debug.LogWarning($"Country {country.CountryName} has no neighbors");
+            else if (neighbors.Any(neighbor => !countriesToCountryData[neighbor].neighbors.Contains(country.Id)))
+                Debug.LogWarning($"Country {country.CountryName} has one way connections to other countries");
         }
 
         // Mark the scene as dirty so the changes are saved
         EditorSceneManager.MarkSceneDirty(EditorSceneManager.GetActiveScene());
     }
 
-    private Texture2D CreateCountryTexture(Color32[] mapPixels, int pixelX, int pixelY, int width, int height, out int minX)
+    private Texture2D CreateCountryTexture(Color32[] mapPixels, int pixelX, int pixelY, int width, int height, out Vector2 pos, out Vector2 avgPos)
     {
         Color32 color = mapPixels[pixelY * width + pixelX];
         int maxY = pixelY;
         int minY = pixelY;
         int maxX = pixelX;
-        minX = pixelX;
+        int minX = pixelX;
 
         // Calcular tamaño del país
         for (int y = pixelY; y < height; y++)
@@ -330,7 +366,9 @@ public class MapEditor : EditorWindow
 
         int newWidth = maxX - minX + 1;
         int newHeight = maxY - minY + 1;
-
+        pos = new Vector2(minX, pixelY);
+        avgPos = Vector2.zero;
+        int pixelCount = 0;
 
         // Crear textura 
         Texture2D countryTexture = new Texture2D(newWidth, newHeight);
@@ -345,11 +383,14 @@ public class MapEditor : EditorWindow
                 {
                     mapPixels[(minY + y) * width + (minX + x)] = new Color32(0, 0, 0, 0);
                     countryPixels[y * newWidth + x] = Color.white;
+                    avgPos += new Vector2(x, y);
+                    pixelCount++;
                 }
                 else
                     countryPixels[y * newWidth + x] = new Color32(0, 0, 0, 0);
             }
         }
+        avgPos /= pixelCount;
 
         countryTexture.SetPixels32(countryPixels);
         countryTexture.Apply();
