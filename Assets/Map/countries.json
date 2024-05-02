@@ -3,223 +3,224 @@
         {
             "id": "chl",
             "name": "Chile",
+            "color": "#FB6060",
             "neighbors": [
                 "arg",
                 "aus",
                 "per"
-            ],
-            "color": "#FB6060"
+            ]
         },
         {
             "id": "arg",
             "name": "Argentina",
+            "color": "#4BC0EF",
             "neighbors": [
                 "chl",
                 "ury",
                 "bra",
                 "per"
-            ],
-            "color": "#4BC0EF"
+            ]
         },
         {
             "id": "aus",
             "name": "Australia",
+            "color": "#FA850D",
             "neighbors": [
                 "chl",
                 "idn",
                 "png",
                 "bor"
-            ],
-            "color": "#FA850D"
+            ]
         },
         {
             "id": "ury",
             "name": "Uruguay",
+            "color": "#7BF5C7",
             "neighbors": [
                 "arg",
                 "bra"
-            ],
-            "color": "#7BF5C7"
+            ]
         },
         {
             "id": "zaf",
             "name": "Sudáfrica",
+            "color": "#286BD5",
             "neighbors": [
                 "mdg",
                 "cod",
                 "ken"
-            ],
-            "color": "#286BD5"
+            ]
         },
         {
             "id": "bra",
             "name": "Brasil",
+            "color": "#83F166",
             "neighbors": [
                 "arg",
                 "ury",
                 "per",
                 "col",
                 "sah"
-            ],
-            "color": "#83F166"
+            ]
         },
         {
             "id": "mdg",
             "name": "Madagascar",
+            "color": "#0ACE21",
             "neighbors": [
                 "zaf",
                 "ken"
-            ],
-            "color": "#0ACE21"
+            ]
         },
         {
             "id": "per",
             "name": "Perú",
+            "color": "#F1B810",
             "neighbors": [
                 "chl",
                 "arg",
                 "bra",
                 "col"
-            ],
-            "color": "#F1B810"
+            ]
         },
         {
             "id": "cod",
             "name": "Congo",
+            "color": "#EFF20D",
             "neighbors": [
                 "zaf",
                 "ken",
                 "egy",
                 "sah"
-            ],
-            "color": "#EFF20D"
+            ]
         },
         {
             "id": "ken",
             "name": "Kenya",
+            "color": "#FC1D45",
             "neighbors": [
                 "zaf",
                 "mdg",
                 "cod",
                 "eth",
                 "egy"
-            ],
-            "color": "#FC1D45"
+            ]
         },
         {
             "id": "idn",
             "name": "Indonesia",
+            "color": "#F4441D",
             "neighbors": [
                 "aus",
                 "sea"
-            ],
-            "color": "#F4441D"
+            ]
         },
         {
             "id": "png",
             "name": "Nueva Guinea",
+            "color": "#24A009",
             "neighbors": [
                 "aus"
-            ],
-            "color": "#24A009"
+            ]
         },
         {
             "id": "bor",
             "name": "Borneo",
+            "color": "#E9EC28",
             "neighbors": [
                 "aus",
                 "sea"
-            ],
-            "color": "#E9EC28"
+            ]
         },
         {
             "id": "col",
             "name": "Colombia",
+            "color": "#FF62C4",
             "neighbors": [
                 "bra",
                 "per",
                 "mex"
-            ],
-            "color": "#FF62C4"
+            ]
         },
         {
             "id": "eth",
             "name": "Etiopía",
+            "color": "#40B4E2",
             "neighbors": [
                 "ken",
                 "egy",
                 "tur"
-            ],
-            "color": "#40B4E2"
+            ]
         },
         {
             "id": "sea",
             "name": "Sudeste Asiático",
+            "color": "#A8F27F",
             "neighbors": [
                 "idn",
                 "bor",
                 "ind",
                 "chn"
-            ],
-            "color": "#A8F27F"
+            ]
         },
         {
             "id": "egy",
             "name": "Egypt",
+            "color": "#FC941B",
             "neighbors": [
                 "cod",
                 "ken",
                 "eth",
                 "sah",
                 "tur"
-            ],
-            "color": "#FC941B"
+            ]
         },
         {
             "id": "sah",
             "name": "Sahara",
+            "color": "#EDCE63",
             "neighbors": [
                 "bra",
                 "cod",
                 "egy",
                 "esp"
-            ],
-            "color": "#EDCE63"
+            ]
         },
         {
             "id": "ind",
             "name": "India",
+            "color": "#FBD514",
             "neighbors": [
                 "sea",
                 "chn",
                 "irn"
-            ],
-            "color": "#FBD514"
+            ]
         },
         {
             "id": "mex",
             "name": "México",
+            "color": "#FBA9DC",
             "neighbors": [
                 "col",
                 "tex"
-            ],
-            "color": "#FBA9DC"
+            ]
         },
         {
             "id": "tur",
             "name": "Turkey",
+            "color": "#F93E3E",
             "neighbors": [
                 "eth",
                 "egy",
                 "irn",
                 "rus",
                 "deu"
-            ],
-            "color": "#F93E3E"
+            ]
         },
         {
             "id": "chn",
             "name": "China",
+            "color": "#F51919",
             "neighbors": [
                 "sea",
                 "ind",
@@ -228,85 +229,85 @@
                 "mng",
                 "kca",
                 "sib"
-            ],
-            "color": "#F51919"
+            ]
         },
         {
             "id": "irn",
             "name": "Irán",
+            "color": "#C22BA5",
             "neighbors": [
                 "ind",
                 "tur",
                 "chn",
                 "rus",
                 "mng"
-            ],
-            "color": "#C22BA5"
+            ]
         },
         {
             "id": "tex",
             "name": "Texas",
+            "color": "#1F9600",
             "neighbors": [
                 "mex",
                 "nyc",
                 "org"
-            ],
-            "color": "#1F9600"
+            ]
         },
         {
             "id": "nyc",
             "name": "Nueva York",
+            "color": "#0010B5",
             "neighbors": [
                 "tex",
                 "org",
                 "can",
                 "nfl"
-            ],
-            "color": "#0010B5"
+            ]
         },
         {
             "id": "jpn",
             "name": "Japón",
+            "color": "#FFC0C0",
             "neighbors": [
                 "chn",
                 "kca"
-            ],
-            "color": "#FFC0C0"
+            ]
         },
         {
             "id": "org",
             "name": "Oregon",
+            "color": "#545EBE",
             "neighbors": [
                 "tex",
                 "nyc",
                 "can",
                 "ykn",
                 "ask"
-            ],
-            "color": "#545EBE"
+            ]
         },
         {
             "id": "esp",
             "name": "España",
+            "color": "#F4EA15",
             "neighbors": [
                 "sah",
                 "fra",
                 "gbr"
-            ],
-            "color": "#F4EA15"
+            ]
         },
         {
             "id": "ita",
             "name": "Italia",
+            "color": "#259C2C",
             "neighbors": [
                 "deu",
                 "fra"
-            ],
-            "color": "#259C2C"
+            ]
         },
         {
             "id": "rus",
             "name": "Rusia",
+            "color": "#F248F5",
             "neighbors": [
                 "tur",
                 "irn",
@@ -314,157 +315,156 @@
                 "deu",
                 "url",
                 "swe"
-            ],
-            "color": "#F248F5"
+            ]
         },
         {
             "id": "mng",
             "name": "Mongolia",
+            "color": "#9C5F18",
             "neighbors": [
                 "chn",
                 "irn",
                 "rus",
                 "sib",
                 "url"
-            ],
-            "color": "#9C5F18"
+            ]
         },
         {
             "id": "deu",
             "name": "Alemania",
+            "color": "#48474F",
             "neighbors": [
                 "tur",
                 "ita",
                 "rus",
                 "fra",
                 "swe"
-            ],
-            "color": "#48474F"
+            ]
         },
         {
             "id": "can",
             "name": "Canadá",
+            "color": "#FF4A4A",
             "neighbors": [
                 "nyc",
                 "org",
                 "nfl",
                 "grl",
                 "ykn"
-            ],
-            "color": "#FF4A4A"
+            ]
         },
         {
             "id": "fra",
             "name": "Francia",
+            "color": "#1F08CA",
             "neighbors": [
                 "esp",
                 "ita",
                 "deu",
                 "gbr"
-            ],
-            "color": "#1F08CA"
+            ]
         },
         {
             "id": "nfl",
             "name": "Labrador",
+            "color": "#3EABEC",
             "neighbors": [
                 "nyc",
                 "can",
                 "grl"
-            ],
-            "color": "#3EABEC"
+            ]
         },
         {
             "id": "kca",
             "name": "Kamchatka",
+            "color": "#656565",
             "neighbors": [
                 "chn",
                 "jpn",
                 "ask",
                 "sib"
-            ],
-            "color": "#656565"
+            ]
         },
         {
             "id": "grl",
             "name": "Groenlandia",
+            "color": "#FF0000",
             "neighbors": [
                 "can",
                 "nfl",
                 "isl"
-            ],
-            "color": "#FF0000"
+            ]
         },
         {
             "id": "ykn",
             "name": "Yukón",
+            "color": "#FB7C14",
             "neighbors": [
                 "org",
                 "can",
                 "ask"
-            ],
-            "color": "#FB7C14"
+            ]
         },
         {
             "id": "ask",
             "name": "Alaska",
+            "color": "#A4DCFC",
             "neighbors": [
                 "org",
                 "kca",
                 "ykn"
-            ],
-            "color": "#A4DCFC"
+            ]
         },
         {
             "id": "sib",
             "name": "Siberia",
+            "color": "#B5EFD2",
             "neighbors": [
                 "chn",
                 "mng",
                 "kca",
                 "url"
-            ],
-            "color": "#B5EFD2"
+            ]
         },
         {
             "id": "url",
             "name": "Ural",
+            "color": "#7CC22B",
             "neighbors": [
                 "rus",
                 "mng",
                 "sib"
-            ],
-            "color": "#7CC22B"
+            ]
         },
         {
             "id": "gbr",
             "name": "Gran Bretaña",
+            "color": "#BC0000",
             "neighbors": [
                 "esp",
                 "fra",
                 "isl"
-            ],
-            "color": "#BC0000"
+            ]
         },
         {
             "id": "swe",
             "name": "Suecia",
+            "color": "#2EB7DE",
             "neighbors": [
                 "rus",
                 "deu",
                 "isl"
-            ],
-            "color": "#2EB7DE"
+            ]
         },
         {
             "id": "isl",
             "name": "Islandia",
+            "color": "#22FF43",
             "neighbors": [
                 "grl",
                 "gbr",
                 "swe"
-            ],
-            "color": "#22FF43"
+            ]
         }
     ]
 }
