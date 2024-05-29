@@ -8,12 +8,14 @@ using UnityEngine.UI;
 
 public class Country : MonoBehaviour
 {
+    public event EventHandler OnUIShouldUpdate;
+
     // Datos del país
     [field: SerializeField] public string Id { get; private set; }
     [field: SerializeField] public string CountryName { get; private set; }
     [field: SerializeField] public List<Country> NeighboringCountries { get; private set; }
     public Player owner;
-    public int troopsAmount = 1;
+    public int troopsAmount = 5;
 
 
     // Método para instanciar un país (usado solamente por Map Editor)
@@ -32,12 +34,33 @@ public class Country : MonoBehaviour
 
 
     // Al hacer click en el país, decir si pertenece al jugador actual
-    private void OnMouseDown()
+    public void OnClick()
     {
-        Player currentPlayer = GameManager.Instance.CurrentPlayer;
-        if (currentPlayer == owner)
-            Debug.Log("You (" + currentPlayer.PlayerName + ") own " + CountryName + ".");
+        GameManager game = GameManager.Instance;
+        Player currentPlayer = game.CurrentPlayer;
+
+        if (owner == currentPlayer)
+        {
+            game.SelectedPrimaryCountry = this;
+            Debug.Log("Selected attacking country " + CountryName);
+        }
         else
-            Debug.Log("You (" + currentPlayer.PlayerName + ") DO NOT own " + CountryName + ", " + owner.PlayerName + " does.");
+        {
+            if (game.SelectedPrimaryCountry != null)
+            {
+                if (game.SelectedPrimaryCountry.NeighboringCountries.Contains(this))
+                {
+                    game.Attack(game.SelectedPrimaryCountry, this);
+                } else
+                    Debug.Log($"You can only attack countries that neighboring countries");
+            } else
+                Debug.Log("You must first select a country from which to attack another");
+        }
+    }
+
+
+    public void UpdateUI()
+    {
+        OnUIShouldUpdate?.Invoke(this, EventArgs.Empty);
     }
 }

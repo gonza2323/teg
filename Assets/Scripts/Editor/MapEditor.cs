@@ -10,6 +10,7 @@ using Unity.Properties;
 using UnityEngine.Rendering;
 using NUnit.Framework;
 using System.IO;
+using Unity.VisualScripting;
 
 
 public class MapEditor : EditorWindow
@@ -146,13 +147,13 @@ public class MapEditor : EditorWindow
             SpriteRenderer renderer = country.GetComponentInChildren<SpriteRenderer>();
             if (renderer != null)
             {
-                countrySaveData.color = '#' + ColorUtility.ToHtmlStringRGB(renderer.color);
+                countrySaveData.color = '#' + UnityEngine.ColorUtility.ToHtmlStringRGB(renderer.color);
                 // TODO: Actualizar textura
             }
             else
             {
                 Debug.LogWarning($"Country ({country.Id}) \"{country.CountryName}\" has not sprite renderer or no sprite. It was saved without a texture.");
-                countrySaveData.color = '#' + ColorUtility.ToHtmlStringRGB(NO_TEXTURE_COLOR);
+                countrySaveData.color = '#' + UnityEngine.ColorUtility.ToHtmlStringRGB(NO_TEXTURE_COLOR);
             }
             
             // Guardamos sus vecinos
@@ -215,7 +216,7 @@ public class MapEditor : EditorWindow
 
         foreach (CountrySaveData countrySaveData in countriesSaveData.countries)
         {
-            if (ColorUtility.TryParseHtmlString(countrySaveData.color, out Color color))
+            if (UnityEngine.ColorUtility.TryParseHtmlString(countrySaveData.color, out Color color))
             {
                 if (!colorsToCountries.TryAdd(color, new CountryData
                 {
@@ -259,10 +260,10 @@ public class MapEditor : EditorWindow
                             fileName = countryData.id;
                         } else 
                         {
-                            Debug.LogError($"No country was found in the json file for the country texture with color {ColorUtility.ToHtmlStringRGB(color)}");
+                            Debug.LogError($"No country was found in the json file for the country texture with color {UnityEngine.ColorUtility.ToHtmlStringRGB(color)}");
                             countryData = new CountryData();
                             colorsToCountries[(Color)color] = countryData;
-                            fileName = ColorUtility.ToHtmlStringRGB(color);
+                            fileName = UnityEngine.ColorUtility.ToHtmlStringRGB(color);
                         }
                         countryData.position = pos;
                         countryData.indicatorPos = avgPos;
@@ -344,6 +345,12 @@ public class MapEditor : EditorWindow
                 }
             } else
                 Debug.LogError("Country prefab has no sprite renderers");
+
+            CountryVisual visual = country.GetComponentInChildren<CountryVisual>();
+            if (visual != null)
+                visual.AddComponent<PolygonCollider2D>();
+            else
+                Debug.LogError("Country prefab has no CountryVisual Script");
 
             Canvas troopIndicator = country.GetComponentInChildren<Canvas>();
             if (troopIndicator != null)

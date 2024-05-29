@@ -21,6 +21,13 @@ public class CountryVisual : MonoBehaviour
     }
 
 
+    private void Start()
+    {
+        _country.OnUIShouldUpdate += SetColorToOwners;
+        _country.OnUIShouldUpdate += UpdateTroopsAmount;
+    }
+
+
     // Actualizar indicador de cantidad de tropas
     private void UpdateTroopsAmount(object sender, EventArgs e)
     {
@@ -32,5 +39,11 @@ public class CountryVisual : MonoBehaviour
     private void SetColorToOwners(object sender, System.EventArgs e)
     {
         _countrySprite.color = _country.owner.PlayerColor;
+    }
+
+
+    private void OnMouseUpAsButton()
+    {
+        _country.OnClick();
     }
 }
